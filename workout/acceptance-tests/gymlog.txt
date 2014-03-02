@@ -1,0 +1,7 @@
+*** Settings ***
+Library           Selenium2Library
+
+*** Test Cases ***
+Last workout date
+    Käyttäjä saapuu etusivulle
+    Hän näkee etusivulta suoraan, milloin viimeisin treeni on tehty

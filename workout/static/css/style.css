@@ -1,0 +1,57 @@
+body{
+background-color:white;
+opacity:1;}
+
+h1{
+font-family:"Calibri";
+color:red;}
+
+p{
+font-family:"Calibri";
+font-size:20px;
+word-wrap:break-word;
+position: relative;
+left:20px;
+}
+
+.note{
+font-family:"Calibri";
+font-size:20px;
+word-wrap:break-word;
+position: relative;
+left:20px;
+top:10px;
+}
+
+a:link {
+font-family:"Calibri";
+font-size:20px;
+word-wrap:break-word;
+}    
+
+a:visited {
+font-family:"Calibri";
+font-size:20px;
+word-wrap:break-word;}
+
+a:hover {
+font-family:"Calibri";
+font-size:20px;
+word-wrap:break-word;}
+
+a:active {
+font-family:"Calibri";
+font-size:20px;
+word-wrap:break-word;}
+
+div { position: relative; }
+
+
+.hyperspan {
+    position:absolute;
+    width:200px;
+    height:50px;
+    left:0;
+    top:0;
+    background-color: green;}
+
