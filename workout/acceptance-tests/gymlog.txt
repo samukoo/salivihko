@@ -1,7 +1,28 @@
 *** Settings ***
+Suite Setup       Open frontpage
+Suite Teardown    Close Browser
 Library           Selenium2Library
 
+*** Variables ***
+${browser}        chrome
+${env}            http://127.0.0.1:8000/gymlog/
+
 *** Test Cases ***
-Last workout date
-    Käyttäjä saapuu etusivulle
-    Hän näkee etusivulta suoraan, milloin viimeisin treeni on tehty
+User can save workout stat into service
+    User navigates to "new workout page" where he can select and save exercise, reps, and kilos.
+
+*** Keywords ***
+Open frontpage
+    Open Browser    http://127.0.0.1:8000/gymlog/
+    Title Should Be    GymLog v0.01
+
+User navigates to "new workout page" where he can select and save exercise, reps, and kilos.
+    From frontpage user navigates to "new workout page"
+    at "new workout page" user save exercise, reps and kilos
+    Just saved "set" is displayed in "new workout page" immediatetly
+
+From frontpage user navigates to "new workout page"
+    click button    id="new_workout"
+    Page Should Contain Element    id="toistot"
+    Page Should Contain Element    id="paino"
+    Page Should Contain Element    id="liike"
