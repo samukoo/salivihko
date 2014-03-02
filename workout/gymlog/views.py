@@ -63,6 +63,19 @@ def add_exercise(request):
 	else:
 		return HttpResponse("vituixman")
 
+def new_workout_page(request):
+
+	context=RequestContext(request)
+
+
+	return HttpResponse("new_workout_page")
+
+
+
+
+
+
+
 def apu_request(request):
 	context=RequestContext(request)
 

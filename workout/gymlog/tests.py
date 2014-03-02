@@ -19,6 +19,10 @@ class ViewTest(TestCase):
     	response = self.client.get('/gymlog/')
     	self.assertEqual(response.status_code, 200)
 
+    def test_new_work_page(self):
+    	response = self.client.get('/gymlog/new_workout_page/')
+    	self.assertEqual(response.status_code, 200)
+
     def test_save_exercise(self):
     	response = self.client.post('/gymlog/save/', {'toistot':'1','date':'1'})
     	self.assertEqual(response.status_code, 200)
