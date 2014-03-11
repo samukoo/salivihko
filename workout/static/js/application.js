@@ -39,16 +39,18 @@ $("#post_send").on('click',function()
 //	console.log(e.target.Id);
 //});
 
-//"button.inc" click increment funktio.  
+//*************************************************************
+//Tämä on toistojen asettamiselle
+//"button.inc_rep" click increment funktio.  
 $("#inc_rep").on('click',function()
 {
-var _kg = parseFloat(jQuery(".rep").text()); //"kg" -class tägin sisällä oleva numero intiksi
+var _kg = parseFloat(jQuery(".rep").text()); //"rep" -class tägin sisällä oleva numero intiksi
 jQuery(".rep").text(_kg+1);
 }
 );
 
 
-//"button.dec"click decrement funktio
+//"button.dec_rep"click decrement funktio
 $("#dec_rep").on('click',function()
 {
 var _kg = parseFloat(jQuery(".rep").text());
@@ -56,11 +58,9 @@ jQuery(".rep").text(_kg-1);
 }
 );
 
+//************************************************************
 
-
-
-
-//"button.inc" click increment funktio.  
+//"button.inc" click increment funktio. Tämä on kilojen säätämiselle 
 $("#inc_kg").on('click',function()
 {
 var _kg = parseFloat(jQuery(".kg").text()); //"kg" -class tägin sisällä oleva numero intiksi
