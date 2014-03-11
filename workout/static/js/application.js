@@ -61,7 +61,7 @@ jQuery(".rep").text(_kg-1);
 
 
 //"button.inc" click increment funktio.  
-$("#inc").on('click',function()
+$("#inc_kg").on('click',function()
 {
 var _kg = parseFloat(jQuery(".kg").text()); //"kg" -class tägin sisällä oleva numero intiksi
 jQuery(".kg").text(_kg+2.5);
@@ -70,7 +70,7 @@ jQuery(".kg").text(_kg+2.5);
 
 
 //"button.dec"click decrement funktio
-$("#dec").on('click',function()
+$("#dec_kg").on('click',function()
 {
 var _kg = parseFloat(jQuery(".kg").text());
 jQuery(".kg").text(_kg-2.5);

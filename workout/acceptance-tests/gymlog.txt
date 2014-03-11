@@ -18,11 +18,19 @@ Open frontpage
 
 User navigates to "new workout page" where he can select and save exercise, reps, and kilos.
     From frontpage user navigates to "new workout page"
-    at "new workout page" user save exercise, reps and kilos
-    Just saved "set" is displayed in "new workout page" immediatetly
+    Comment    at "new workout page" user save exercise, reps and kilos
+    Comment    Just saved "set" is displayed in "new workout page" immediatetly
 
 From frontpage user navigates to "new workout page"
+    [Documentation]    testataan nappien toiminta
     Click Link    new_workout
-    Page Should Contain Element    id="toistot"
-    Page Should Contain Element    id="paino"
-    Page Should Contain Element    id="liike"
+    Page Should Contain    6 toistoa
+    Page Should Contain    20 kg
+    Click Element    inc_rep
+    Wait Until Page Contains Element    jquery=.rep:contains(7)
+    Click Element    dec_rep
+    Wait Until Page Contains Element    jquery=.rep:contains(6)
+    Click Element    inc_kg
+    Wait Until Page Contains Element    jquery=.kg:contains(22.5)
+    Click Element    dec_kg
+    Wait Until Page Contains Element    jquery=.kg:contains(20)
