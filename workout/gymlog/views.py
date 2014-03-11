@@ -68,7 +68,7 @@ def new_workout_page(request):
 	context=RequestContext(request)
 
 
-	return HttpResponse("new_workout_page")
+	return render_to_response('gymlog/new_workout.html', context)
 
 
 

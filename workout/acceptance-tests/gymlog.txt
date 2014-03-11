@@ -22,7 +22,7 @@ User navigates to "new workout page" where he can select and save exercise, reps
     Just saved "set" is displayed in "new workout page" immediatetly
 
 From frontpage user navigates to "new workout page"
-    click button    id="new_workout"
+    Click Link    new_workout
     Page Should Contain Element    id="toistot"
     Page Should Contain Element    id="paino"
     Page Should Contain Element    id="liike"

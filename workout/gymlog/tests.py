@@ -20,7 +20,7 @@ class ViewTest(TestCase):
     	self.assertEqual(response.status_code, 200)
 
     def test_new_work_page(self):
-    	response = self.client.get('/gymlog/new_workout_page/')
+    	response = self.client.get('/gymlog/new_workout/')
     	self.assertEqual(response.status_code, 200)
 
     def test_save_exercise(self):
@@ -47,23 +47,12 @@ class FunktiotTest(TestCase):
 		liikkeet = a.hae_liikkeet()
 		self.assertNotEqual(liikkeet[0], "NULL")
 
-
-
-
-
-
-
 	def test_funk_tallenna_date(self):
 			#funktio tallentaa päivän kantaan
 			#mikäli tallennus ei onnistu, get feilaa ja testi feilaa
 			a = funktiot.db()
 			a.tallenna_date()
 			workout.objects.get(pk=1)
-
-
-
-
-
 
 class ModelTest(TestCase):
 	
