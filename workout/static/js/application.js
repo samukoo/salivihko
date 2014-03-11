@@ -39,6 +39,23 @@ $("#post_send").on('click',function()
 //	console.log(e.target.Id);
 //});
 
+//"button.inc" click increment funktio.  
+$("#inc_rep").on('click',function()
+{
+var _kg = parseFloat(jQuery(".rep").text()); //"kg" -class tägin sisällä oleva numero intiksi
+jQuery(".rep").text(_kg+1);
+}
+);
+
+
+//"button.dec"click decrement funktio
+$("#dec_rep").on('click',function()
+{
+var _kg = parseFloat(jQuery(".rep").text());
+jQuery(".rep").text(_kg-1);
+}
+);
+
 
 
 
