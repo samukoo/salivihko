@@ -67,8 +67,19 @@ def new_workout_page(request):
 
 	context=RequestContext(request)
 
+	a=funktiot.db()
+	liikkeet=a.hae_liikkeet()
 
-	return render_to_response('gymlog/new_workout.html', context)
+	context_dict = {'liikkeet' : liikkeet}
+
+
+
+
+
+
+
+
+	return render_to_response('gymlog/new_workout.html', context_dict ,context)
 
 
 
