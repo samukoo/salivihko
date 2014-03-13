@@ -15,12 +15,12 @@
    	 	<div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
-          <button type="button" class="btn-large btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="brand" href="/gymlog/apu_request/">GymLog</a>
+          <a class="brand" href="">GymLog</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
               <li class="active"><a href="#">Home</a></li>
@@ -41,7 +41,7 @@
 <span class="note">Tervetuloa (käyttäjä)! Viimeisin treeni tehty {{ last_workout }}</span>
   <br>
   
-<a href="/gymlog/new_workout/" class="btn-large btn-warning" id="new_workout">Uusi treeni!</a><br>
+<a href="/gymlog/uusi_treeni/" class="btn btn-warning" id="new_workout">Uusi treeni!</a><br>
 
 
 
@@ -50,8 +50,8 @@
   <br>
   
 <!-- drop down menu. lista tulee kannasta -->
-              <div class="btn-large-group">
-                <button type="button" class="btn-large btn-primary dropdown-toggle" data-toggle="dropdown">
+              <div class="btn-group">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                    <span id="_vit">Valitse liike</span><span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu" role="menu">
@@ -75,18 +75,69 @@
 <!-- loppuupi tähän -->
 <br>
 <br>
-    <a href="#acceptModal" role="button" class="btn-large btn-primary btn-lg" data-toggle="modal" id="jQuery">jQuery testi</a>
+    <a href="#acceptModal" role="button" class="btn btn-primary btn-lg" data-toggle="modal" id="jQuery">jQuery testi</a>
 
 <br>
 
 <h1>
-    <button class="btn-large" id="dec">-</button>
-        <span class="kg">0</span>kg
-    <button class="btn-large" id="inc">+</button>
+    <button class="btn" id="dec">-</button>
+        <span class="testi">0</span>kg
+    <button class="btn" id="inc_kg">+</button>
 </h1>
 
 
-<a href="#acceptModal" role="button" class="btn-large" data-toggle="modal" id="post_send">Send!</a>
+<a href="#acceptModal" role="button" class="btn" data-toggle="modal" id="post_send">Send!</a>
+
+<span id="huoh">teksti</span>
+<br>
+<br>
+<select id="aioConceptName">
+    <option value="0">choose io</option>
+    <option value="1">roma</option>
+    <option value="2">totti</option>
+</select>
+
+
+<div class="btn-large-group">
+                
+                <button type="button" class="btn-large btn-primary dropdown-toggle" data-toggle="dropdown">
+                   <span id="_vit">Valitse liike</span><span class="caret"></span>
+                </button>
+
+                <ul class="dropdown-menu" role="menu" id="wtf">
+                                    
+                  {% for liike in liikkeet %}
+
+                      <li><a id="{{ liike }}" >{{ liike }}</a></li>
+                  
+                  {%endfor%}
+
+                  <li class="divider"></li>
+                  <li><a href="#addModal" data-toggle="modal">Lisää uusi liike</a></li>
+
+                </ul>
+                 
+              </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <!-- Modal -->
 <div id="acceptModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -110,7 +161,7 @@
 
       </div>
       <div class="modal-footer">
-    <button class="btn-large2" data-dismiss="modal" aria-hidden="true">Jatka</button>
+    <button class="btn2" data-dismiss="modal" aria-hidden="true">Jatka</button>
     
     </div>
   </div>
@@ -136,8 +187,8 @@
 
         </div>
         <div class="modal-footer">
-        <button type="button" class="btn-large btn-default" data-dismiss="modal">Sulje</button>
-        <button type="submit" class="btn-large btn-primary">Tallenna</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Sulje</button>
+        <button type="submit" class="btn btn-primary">Tallenna</button>
         </form>
       </div>
     </div>
@@ -165,6 +216,6 @@
 
       <script src=" {% static "js/jquery-1.10.2.js" %} "></script>
       <script src=" {% static "js/jquery.cookie.js" %} "></script>
-      <script src=" {% static "js/application.js" %} "></script>
+      <script src=" {% static "js/application_test.js" %} "></script>
     </body>
     </html>

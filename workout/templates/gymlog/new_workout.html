@@ -1,14 +1,14 @@
-    <!DOCTYPE html>
-    {% load static %}
+		<!DOCTYPE html>
+		{% load static %}
 
 
-    <html>
-    	<head>
-    		<title>GymLog v0.01</title>
-    		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    		<!-- Bootstrap -->
- 			<link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.css" %}">
-    	</head>
+		<html>
+			<head>
+				<title>GymLog v0.01</title>
+				<meta name="viewport" content="width=device-width, initial-scale=1.0">
+				<!-- Bootstrap -->
+			<link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.css" %}">
+			</head>
 
 
 
@@ -24,64 +24,56 @@ margin:0px;
 </style>
 
 
-   
-    <body>
-   	 	
-   	 	<div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <button type="button" class="btn-large btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="brand" href="/gymlog">GymLog</a>
-          
-        </div>
-      </div>
-    </div>
+	 
+		<body>
+			
+			<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<button type="button" class="btn-large btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="brand" href="/gymlog/uusi_treeni/">GymLog</a>
+					<span class="brand" id="exercise"></span>
+					<span class="brand" id="response"></span>
+				</div>
+			</div>
+		</div>
 
-    
-      <!-- sivun sisältö -->
-     
-      <div style="
-        font-family:verdana;
-        position:absolute;
-        left:30%;
-        right:5%;
-        height:50px;
-        top:15%;
-        padding:0px;
-        border:1px solid white;
-        border-spacing:100px 50px;">
+		
+			<!-- sivun sisältö -->
+		 
+			<div style="
+				font-family:verdana;
+				position:absolute;
+				left:30%;
+				right:5%;
+				height:50px;
+				top:15%;
+				padding:0px;
+				border:1px solid white;
+				border-spacing:100px 50px;">
 
-         
+				 
 <!-- drop down menu. lista tulee kannasta -->
-              <div class="btn-large-group">
-                
-                <button type="button" class="btn-large btn-primary dropdown-toggle" data-toggle="dropdown">
-                   <span id="_vit">Valitse liike</span><span class="caret"></span>
-                </button>
+							<select id="liike" >
+																				
+									{% for liike in liikkeet %}
 
-                <ul class="dropdown-menu" role="menu">
-                                    
-                  {% for liike in liikkeet %}
+											<option value="{{ liike }}" id="{{ liike }}" >{{ liike }}</option>
+									
+									{%endfor%}
+										<option value="/add" > Lisää uusi liike </option> 
+							</select>
 
-                      <li><a id="{{ liike }}" >{{ liike }}</a></li>
-                  
-                  {%endfor%}
-
-                  <li class="divider"></li>
-                  <li><a href="#addModal" data-toggle="modal">Lisää uusi liike</a></li>
-
-                </ul>
-                 
-              </div>
+								 
 
 
 
-    
-    
+		
+		
 <!-- loppuupi tähän -->
 
 
@@ -96,7 +88,7 @@ margin:0px;
 
 
 
-      </div>
+			</div>
 
 
 
@@ -110,128 +102,126 @@ margin:0px;
 
 <!-- toistot -->
 <!--container-->
-      <div style="
-        font-family:verdana;
-        position:absolute;
-        left:5%;
-        right:5%;
-        height:50px;
-        top:25%;
-        padding:0px;
-        border:1px solid white;
-        border-spacing:100px 50px;">
+			<div style="
+				font-family:verdana;
+				position:absolute;
+				left:5%;
+				right:5%;
+				height:50px;
+				top:25%;
+				padding:0px;
+				border:1px solid white;
+				border-spacing:100px 50px;">
 
-                    <div style="font-family:verdana;position:absolute;left:10%;right:65%;bottom:5%;top:5%;padding:0px;border:1px solid white;border-spacing:100px 50px;">
-                      <center>
-                        <button class="btn-large btn-warning" id="dec_rep">-</button><br>
-                      </center>
-                    </div>
+										<div style="font-family:verdana;position:absolute;left:10%;right:65%;bottom:5%;top:5%;padding:0px;border:1px solid white;border-spacing:100px 50px;">
+											<center>
+												<button class="btn-large btn-warning" id="dec_rep">-</button><br>
+											</center>
+										</div>
 
-                  <div style="font-family:verdana;position:absolute;left:35%;right:35%;bottom:5%;top:5%;padding:0px;border:1px solid white;border-spacing:100px 50px;">
-                    <center>
-                      <span class="rep">6</span> toistoa
-                    </center>
-                  </div>
+									<div style="font-family:verdana;position:absolute;left:35%;right:35%;bottom:5%;top:5%;padding:0px;border:1px solid white;border-spacing:100px 50px;">
+										<center>
+											<span class="rep" id="rep">6</span> toistoa
+										</center>
+									</div>
 
-                  <div style="font-family:verdana;position:absolute;left:65%;right:5%;bottom:5%;top:5%;padding:0px;border:1px solid white;border-spacing:100px 50px;">
-                    <center>
-                      <button class="btn-large btn-warning" id="inc_rep">+</button><br>
-                    </center>
-                   </div>
-        </div>
+									<div style="font-family:verdana;position:absolute;left:65%;right:5%;bottom:5%;top:5%;padding:0px;border:1px solid white;border-spacing:100px 50px;">
+										<center>
+											<button class="btn-large btn-warning" id="inc_rep">+</button><br>
+										</center>
+									 </div>
+				</div>
 <!--container-->                  
 <!-- toistot -->
 
-    
+		
 <!-- kilot -->
 <!--container-->
-      <div style="
-        font-family:verdana;
-        position:absolute;
-        left:5%;
-        right:5%;
-        height:50px;
-        top:40%;
-        padding:0px;
-        border:1px solid white;
-        border-spacing:100px 50px;">
+			<div style="
+				font-family:verdana;
+				position:absolute;
+				left:5%;
+				right:5%;
+				height:50px;
+				top:40%;
+				padding:0px;
+				border:1px solid white;
+				border-spacing:100px 50px;">
 
-                    <div style="font-family:verdana;position:absolute;left:10%;right:65%;bottom:5%;top:5%;padding:0px;border:1px solid white;border-spacing:100px 50px;">
-                      <center>
-                        <button class="btn-large btn-warning" id="dec_kg">-</button><br>
-                      </center>
-                    </div>
+										<div style="font-family:verdana;position:absolute;left:10%;right:65%;bottom:5%;top:5%;padding:0px;border:1px solid white;border-spacing:100px 50px;">
+											<center>
+												<button class="btn-large btn-warning" id="dec_kg">-</button><br>
+											</center>
+										</div>
 
-                  <div style="font-family:verdana;position:absolute;left:35%;right:35%;bottom:5%;top:5%;padding:0px;border:1px solid white;border-spacing:100px 50px;">
-                    <center>
-                      <span class="kg">20 </span>kg
-                    </center>
-                  </div>
+									<div style="font-family:verdana;position:absolute;left:35%;right:35%;bottom:5%;top:5%;padding:0px;border:1px solid white;border-spacing:100px 50px;">
+										<center>
+											<span class="kg" id="kg">20 </span>kg
+										</center>
+									</div>
 
-                  <div style="font-family:verdana;position:absolute;left:65%;right:5%;bottom:5%;top:5%;padding:0px;border:1px solid white;border-spacing:100px 50px;">
-                    <center>
-                      <button class="btn-large btn-warning" id="inc_kg">+</button><br>
-                    </center>
-                   </div>
-        </div>
+									<div style="font-family:verdana;position:absolute;left:65%;right:5%;bottom:5%;top:5%;padding:0px;border:1px solid white;border-spacing:100px 50px;">
+										<center>
+											<button class="btn-large btn-warning" id="inc_kg">+</button><br>
+										</center>
+									 </div>
+				</div>
 <!--container-->                
 <!-- kilot -->
 
 <!-- kilostepit -->
 <!--container-->
-      <div style="
-        font-family:verdana;
-        position:absolute;
-        left:5%;
-        right:5%;
-        height:50px;
-        top:55%;
-        padding:0px;
-        border:1px solid white;
-        border-spacing:100px 50px;">
+			<div style="
+				font-family:verdana;
+				position:absolute;
+				left:5%;
+				right:5%;
+				height:50px;
+				top:55%;
+				padding:0px;
+				border:1px solid white;
+				border-spacing:100px 50px;">
 
-                    <div style="font-family:verdana;position:absolute;left:10%;right:65%;bottom:5%;top:5%;padding:0px;border:1px solid white;border-spacing:100px 50px;">
-                      <center>
-                        <button class="btn-large btn-warning" id="dec_step">-</button><br>
-                      </center>
-                    </div>
+										<div style="font-family:verdana;position:absolute;left:10%;right:65%;bottom:5%;top:5%;padding:0px;border:1px solid white;border-spacing:100px 50px;">
+											<center>
+												<button class="btn-large btn-warning" id="dec_step">-</button><br>
+											</center>
+										</div>
 
-                  <div style="font-family:verdana;position:absolute;left:35%;right:35%;bottom:5%;top:5%;padding:0px;border:1px solid white;border-spacing:100px 50px;">
-                    <center>
-                      <span class="kg_step">2.5 </span>kg
-                    </center>
-                  </div>
+									<div style="font-family:verdana;position:absolute;left:35%;right:35%;bottom:5%;top:5%;padding:0px;border:1px solid white;border-spacing:100px 50px;">
+										<center>
+											<span class="kg_step">2.5 </span>kg
+										</center>
+									</div>
 
-                  <div style="font-family:verdana;position:absolute;left:65%;right:5%;bottom:5%;top:5%;padding:0px;border:1px solid white;border-spacing:100px 50px;">
-                    <center>
-                      <button class="btn-large btn-warning" id="inc_step">+</button><br>
-                    </center>
-                   </div>
-        </div>
+									<div style="font-family:verdana;position:absolute;left:65%;right:5%;bottom:5%;top:5%;padding:0px;border:1px solid white;border-spacing:100px 50px;">
+										<center>
+											<button class="btn-large btn-warning" id="inc_step">+</button><br>
+										</center>
+									 </div>
+				</div>
 <!--container-->
 <!-- kilostepit -->
 
 
 <!-- toistot -->
 <!--container-->
-      <div style="
-        font-family:verdana;
-        position:absolute;
-        left:5%;
-        right:5%;
-        height:50px;
-        top:70%;
-        padding:0px;
-        border:1px solid white;
-        border-spacing:100px 50px;">
+			<div style="
+				font-family:verdana;
+				position:absolute;
+				left:5%;
+				right:5%;
+				height:50px;
+				top:70%;
+				padding:0px;
+				border:1px solid white;
+				border-spacing:100px 50px;">
 
-          <center>
-            <button class="btn-large" id="send_set">Lähetä</button>
-          </center>
+					<center>
+						<button class="btn-large" id="send_set">Lähetä</button>
+					</center>
 
-      </div>
-
-
+			</div>
 
 
 
@@ -249,14 +239,16 @@ margin:0px;
 
 
 
-      <!-- sivun sisältö -->
-    </div>
-    	<script src="http://code.jquery.com/jquery.js"></script>
-    	<script src="{% static "js/bootstrap.js" %}"></script>
-    
 
-      <script src=" {% static "js/jquery-1.10.2.js" %} "></script>
-      <script src=" {% static "js/jquery.cookie.js" %} "></script>
-      <script src=" {% static "js/application.js" %} "></script>
-    </body>
-    </html>
+
+			<!-- sivun sisältö -->
+		</div>
+			<script src="http://code.jquery.com/jquery.js"></script>
+			<script src="{% static "js/bootstrap.js" %}"></script>
+		
+
+			<script src=" {% static "js/jquery-1.10.2.js" %} "></script>
+			<script src=" {% static "js/jquery.cookie.js" %} "></script>
+			<script src=" {% static "js/application.js" %} "></script>
+		</body>
+		</html>

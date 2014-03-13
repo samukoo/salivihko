@@ -24,8 +24,12 @@ class ViewTest(TestCase):
     	self.assertEqual(response.status_code, 200)
 
     def test_save_exercise(self):
-    	response = self.client.post('/gymlog/save/', {'toistot':'1','date':'1'})
+    	response = self.client.post('/gymlog/save/', {'toistot':'1','date':'1','kilot':'20','liike':'penkki'})
     	self.assertEqual(response.status_code, 200)
+
+    def test_save_exercise_response_400(self):
+    	response = self.client.post('/gymlog/save/', {'toistot':'1','date':'1','kilot':'20'})
+    	self.assertEqual(response.status_code, 400)
 
     def test_tallenna_uusi_liike(self):
     	response = self.client.post('/gymlog/add_exercise/', {'liike':'Pena'})
@@ -60,7 +64,8 @@ class ModelTest(TestCase):
 		#workout taulu
 		date = datetime.date.today()
 		numero = "1"
-		workout.objects.create(date=date,toistot=numero)
+		kilot = "20"
+		workout.objects.create(date=date,toistot=numero,kilot=kilot)
 		return
 
 	def create_data_exercise(self):
@@ -82,6 +87,7 @@ class ModelTest(TestCase):
 		a = self.create_data_workout()
 		#2: lue kannasta eka objecti. failaa jos tyhjä 
 		data = workout.objects.get(pk=1)
+
 
 	
 

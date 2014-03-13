@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from django.http import HttpResponse
+from django.http import *
 from django.template import RequestContext
 from django.shortcuts import render_to_response
 from gymlog.forms import ToistoForm, LiikeForm
@@ -47,14 +47,11 @@ def save(request):
 			return HttpResponse("Save ok!")
 		else:
 			#return index(request)
-			return HttpResponse(form.errors)
-		#Jos ei posti, tyhjä formi
-	else:
-		form = ToistoForm()
-	return render_to_response('gymlog/add.html', {'form': form}, context)
+			return HttpResponseBadRequest("Lisaa liike!")
+		
 
 def add_exercise(request):
-
+	#Tämä tallentaa kantaan uuden liikkeen
 	context=RequestContext(request)
 	form = LiikeForm(request.POST)
 	if form.is_valid():
@@ -62,6 +59,19 @@ def add_exercise(request):
 		return redirect('index')
 	else:
 		return HttpResponse("vituixman")
+
+def uusi_treeni(request):
+
+	context=RequestContext(request)
+
+	a=funktiot.db()
+	liikkeet=a.hae_liikkeet()
+
+	context_dict = {'liikkeet' : liikkeet}
+
+	return render_to_response('gymlog/uusi_treeni.html', context_dict ,context)
+
+
 
 def new_workout_page(request):
 
@@ -71,13 +81,6 @@ def new_workout_page(request):
 	liikkeet=a.hae_liikkeet()
 
 	context_dict = {'liikkeet' : liikkeet}
-
-
-
-
-
-
-
 
 	return render_to_response('gymlog/new_workout.html', context_dict ,context)
 

@@ -6,7 +6,9 @@ from gymlog.models import workout, exercise
 class ToistoForm(forms.ModelForm):
     
     toistot = forms.IntegerField(help_text="Toistojen lukumäärä")
+    kilot = forms.IntegerField(help_text="kilot")
     date = forms.CharField(widget=forms.DateInput(), max_length=128, help_text="Pvm")
+    liike = forms.CharField(help_text="liike")
 
     class Meta:
         # Provide an association between the ModelForm and a model

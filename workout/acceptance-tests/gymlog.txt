@@ -24,6 +24,7 @@ User navigates to "new workout page" where he can select and save exercise, reps
 From frontpage user navigates to "new workout page"
     [Documentation]    testataan nappien toiminta
     Click Link    new_workout
+    Click Link    uusi_treeni
     Page Should Contain    6 toistoa
     Page Should Contain    20 kg
     Click Element    inc_rep

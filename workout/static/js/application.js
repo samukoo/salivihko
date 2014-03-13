@@ -1,8 +1,14 @@
-//gymlog application.js. Palvelun jQueryt (c)Sauli Kotisaari
+//gymlog application.js. Palvelun jQueryt (
 
 
-//var data = "moi"
-//jQuery(".response").text(data);
+$('#liike').on('click',function()
+{
+var data = $('#liike :selected').text();
+jQuery("#exercise").text(data);
+});
+
+
+//jQuery("#huoh").text(data);
 
 
 
@@ -13,17 +19,23 @@
 //cookiesta csrf -token joka vaaditaan POST bodyssä. 
 
 
-$("#post_send").on('click',function()
+$("#send_set").on('click',function()
 	{
-	var _toistot = parseInt(jQuery(".kg").text());
+	var _toistot = parseInt(jQuery("#rep").text());
+	var _kilot = parseInt(jQuery("#kg").text());
+	var _liike = jQuery("#exercise").text();
 	var csrftoken = $.cookie('csrftoken');
-	$.post( "/gymlog/save/", { csrfmiddlewaretoken: csrftoken , toistot: _toistot, date: "28.02.2014" }) 
+	$.post( "/gymlog/save/", { 	csrfmiddlewaretoken: csrftoken, 
+								toistot: _toistot, 
+								kilot: _kilot,
+								liike: _liike,
+								date: "13.03.2014"}) 
 		.done(function( data ) {
-		jQuery(".post_response").text(data);
+		jQuery("#response").text(data);
 
 		setInterval(function(){
-			var _hmm = ("testiresponse")
-			jQuery(".post_response").text(_hmm)
+			var _hmm = ("")
+			jQuery("#response").text(_hmm)
 
 		},10000);
 
@@ -34,10 +46,14 @@ $("#post_send").on('click',function()
 
 //**************************************************************
 //alasvetovalitsimen klikkailu, eli liikkeen valitsin
-//jQuery(".dropdown-menu").on('click',function(e)
+//$("#Kyykky").on('click',function()
 //{
-//	console.log(e.target.Id);
+//	$("#exercise").text("Kyykky");
 //});
+
+//var conceptName = $('#kyykky').find(":selected").text();
+
+
 
 //*************************************************************
 //Tämä on toistojen asettamiselle
