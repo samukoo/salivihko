@@ -17,3 +17,25 @@ class exercise(models.Model):
 
 	def __unicode__(self):
 		return self.liike
+
+
+
+
+class treeni(models.Model):
+	pvm = models.CharField(max_length=20)
+	
+	def __unicode__(self):
+		return self.pvm
+
+	class Meta:
+		ordering = ('pvm',)
+
+class setti(models.Model):
+	liike = models.CharField(max_length=20)
+	treeni = models.ManyToManyField(treeni)
+
+	def __unicode__(self):
+		return self.liike
+
+	class Meta:
+		ordering = ('liike',)

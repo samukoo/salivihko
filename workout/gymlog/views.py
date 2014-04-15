@@ -19,15 +19,21 @@ def index(request):
 	#fetch_db() hakee viimeisimmän treenin päivämäärän
 	last_workout = a.fetch_db()
 	
-	testi = workout.objects.all()
-	liikkeet = a.hae_liikkeet()
+	treenit = treeni.objects.all()
+	
+	
 
+	setit = setti.objects.all()
+
+
+
+	liikkeet = "joo"
 
 
 	#Syötetään context_dict muuttujalle data
 	context_dict = {'last_workout' : last_workout,
-	'liikkeet' : liikkeet,
-	'sarjat' : testi
+	'setit' : setit,
+	'treenit' : treenit
 	}
 	
 	#Lähetetään keräilty data html rederöitäväksi
@@ -64,10 +70,16 @@ def uusi_treeni(request):
 
 	context=RequestContext(request)
 
-	a=funktiot.db()
-	liikkeet=a.hae_liikkeet()
+	
 
-	context_dict = {'liikkeet' : liikkeet}
+	testi = {
+			'77.77.7777':"daa",
+			'66.66.6666':"joo"
+			}
+
+	context_dict = {'testi':testi
+
+					}
 
 	return render_to_response('gymlog/uusi_treeni.html', context_dict ,context)
 
