@@ -17,7 +17,7 @@ def index(request):
 	a = funktiot.db()
 	
 	#fetch_db() hakee viimeisimmän treenin päivämäärän
-	last_workout = a.fetch_db()
+	#last_workout = a.fetch_db()
 	
 	treenit = treeni.objects.all()
 	
@@ -31,7 +31,7 @@ def index(request):
 
 
 	#Syötetään context_dict muuttujalle data
-	context_dict = {'last_workout' : last_workout,
+	context_dict = {
 	'setit' : setit,
 	'treenit' : treenit
 	}

@@ -9,12 +9,29 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
+######### db ###################
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'C:/Users/kotissa/django-app/workout/gymlog/kanta.db',                      # Or path to database file if using sqlite3.
+        'ENGINE': 'django.db.backends.mysql', 
+        'NAME': 'gymlog',
+        'USER': 'root',
+        'PASSWORD': 'root',
+        'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
+        'PORT': '3306',
     }
 }
+
+
+
+
+################################
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+#        'NAME': 'C:/Users/kotissa/django-app/workout/gymlog/kanta.db',                      # Or path to database file if using sqlite3.
+#    }
+#}
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
