@@ -8,7 +8,12 @@
     		<meta name="viewport" content="width=device-width, initial-scale=1.0">
     		<!-- Bootstrap -->
  			<link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.css" %}">
-    	</head>
+    	
+      <script src="{% static "js/bootstrap.js" %}"></script>
+      <script src=" {% static "js/jquery-1.10.2.js" %} "></script>
+      <script src=" {% static "js/app_nw.js" %} "></script>
+
+      </head>
    
     <body>
    	 	
@@ -23,139 +28,32 @@
           <a class="brand" href="/gymlog/">GymLog</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li class="active" ><a href="/gymlog/new_workout/" id="uusi_treeni">Uusi treeni</a></li>
-              
+              <li class="active" ><a href="/gymlog/new_workout/" id="uusi_treeni">Uusi treeni</a></li>     
             </ul>
-          </div><!--/.nav-collapse -->
+          </div>
         </div>
       </div>
-    </div>
- 
+      </div>
 
-
-
-<br>
-<br>
-<br>      
+      <br>
+      <br>
+      <br>      
       
-   
-<!--container-->
-  <div class="container" style="
-        font-family:verdana;
-        position:absolute;
-        left:5%;
-        right:5%;
-        bottom:5%;
-        top:10%;
-        padding:0px;
-        border:1px solid black;
-        border-spacing:100px 50px;">
-
-<div>
-      <ul>
-        
-        {% for date in testi %}
+ 
+      <!--container-->
+      <div class="container2" style="
             
-              <li>{{ date }}</li>
-            
-                  <ul> 
-            
-                    
+            position:absolute;
+            left:20%;
+            right:20%;
+            bottom:5%;
+            top:50px;
+            padding:0px;
+            border:1px solid black;
+            border-spacing:100px 50px;">
 
-                          <li>{{ date }}</li>
-
-                    
-             
-                  </ul>
-        
-        {% endfor %}
-
-
-      </ul>
-    </div>         
-
-
-<p>{{ testi.0 }}</p>
-
-
-
-
-
-
-
-<!--
-
-    <div>
-      <ul>
-        <li>13.3.2014</li>
-          <ul>
-            <li><a>Penkki</a> 2 sarjaa</li>
-              <ul>
-                <li>6 x 50 </li>
-                <li>7 x 70 </li>
-              </ul>
-            <li><a>Kyykky</a> 1 sarja</li>
-              <ul>
-                <li>9 x 85 </li>
-              </ul>
-          </ul>
-        <li>11.3.2014</li>
-          
-
-
-      </ul>
-    </div>                    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  </div>
-<!--container-->            
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    	<script src="http://code.jquery.com/jquery.js"></script>
-    	<script src="{% static "js/bootstrap.js" %}"></script>
-    
-
-      <script src=" {% static "js/jquery-1.10.2.js" %} "></script>
-      <script src=" {% static "js/jquery.cookie.js" %} "></script>
-      <script src=" {% static "js/application_test.js" %} "></script>
+        <div id="viimeisin_treeni"></div>         
+      </div>
+      <!--container-->            
     </body>
     </html>

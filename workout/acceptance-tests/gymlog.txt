@@ -14,7 +14,7 @@ User can save workout stat into service
 *** Keywords ***
 Open frontpage
     Open Browser    http://127.0.0.1:8000/gymlog/
-    Title Should Be    GymLog v0.01
+    Title Should Be    Salivihko v0.01
 
 User navigates to "new workout page" where he can select and save exercise, reps, and kilos.
     From frontpage user navigates to "new workout page"
@@ -24,7 +24,6 @@ User navigates to "new workout page" where he can select and save exercise, reps
 From frontpage user navigates to "new workout page"
     [Documentation]    testataan nappien toiminta
     Click Link    new_workout
-    Click Link    uusi_treeni
     Page Should Contain    6 toistoa
     Page Should Contain    20 kg
     Click Element    inc_rep

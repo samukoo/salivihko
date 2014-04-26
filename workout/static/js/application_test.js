@@ -1,4 +1,4 @@
-//gymlog application.js. Palvelun jQueryt (
+//gymlog application.js. jQueryt (
 
 $('#aioConceptName').on('click',function()
 {
@@ -9,6 +9,8 @@ jQuery(".testi").text(data);
 //jQuery("#huoh").text(data);
 
 
+
+      
 
 
 
@@ -84,24 +86,3 @@ var _kg = parseFloat(jQuery(".kg").text());
 jQuery(".kg").text(_kg-2.5);
 }
 );
-
-//*****************************************************************************
-
-
-//Ajastin funktio. tekee jotain 2s välein.
-
-
-//jQuery(function(){    
-  //  setInterval(function(){ 								//Calls a function every X ms as specified in param 2
-    //    var _nbr = parseInt(jQuery('h1').text());			//Get number from element as int
-      //  jQuery('h1').text(++_nbr);							//Increment variable and puts it in the element
-    //},2000);												//Number of ms between function calls
-//});
-
-//$('.send').on('click',function()
-//{
-//$.post( "/gymlog/save/", function( data ) 
-//{
-//$( ".result" ).html( data );
-//});
-//});

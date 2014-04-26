@@ -1,19 +1,10 @@
 //gymlog application.js. Palvelun jQueryt (
 
-
 $('#liike').on('click',function()
 {
 var data = $('#liike :selected').text();
 jQuery("#exercise").text(data);
 });
-
-
-//jQuery("#huoh").text(data);
-
-
-
-
-
 
 //"button.send" click. POST funktio. Tähän täytyy kaivaa 
 //cookiesta csrf -token joka vaaditaan POST bodyssä. 
@@ -29,31 +20,12 @@ $("#send_set").on('click',function()
 								toistot: _toistot, 
 								kilot: _kilot,
 								liike: _liike,
-								date: "13.03.2014"}) 
-		.done(function( data ) {
-		jQuery("#response").text(data);
+								date: "13.03.2014"})
+		.always(function( data ){
+			alert(data);
+		});
 
-		setInterval(function(){
-			var _hmm = ("")
-			jQuery("#response").text(_hmm)
-
-		},10000);
-
-});
-});
-
-
-
-//**************************************************************
-//alasvetovalitsimen klikkailu, eli liikkeen valitsin
-//$("#Kyykky").on('click',function()
-//{
-//	$("#exercise").text("Kyykky");
-//});
-
-//var conceptName = $('#kyykky').find(":selected").text();
-
-
+	});
 
 //*************************************************************
 //Tämä on toistojen asettamiselle
@@ -93,23 +65,3 @@ jQuery(".kg").text(_kg-2.5);
 }
 );
 
-//*****************************************************************************
-
-
-//Ajastin funktio. tekee jotain 2s välein.
-
-
-//jQuery(function(){    
-  //  setInterval(function(){ 								//Calls a function every X ms as specified in param 2
-    //    var _nbr = parseInt(jQuery('h1').text());			//Get number from element as int
-      //  jQuery('h1').text(++_nbr);							//Increment variable and puts it in the element
-    //},2000);												//Number of ms between function calls
-//});
-
-//$('.send').on('click',function()
-//{
-//$.post( "/gymlog/save/", function( data ) 
-//{
-//$( ".result" ).html( data );
-//});
-//});

@@ -2,16 +2,25 @@
     {% load static %}
 
 
-    <html>
-    	<head>
-    		<title>GymLog v0.01</title>
+<html>
+ 	<head>
+    		<title>Salivihko v0.01</title>
     		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    		<!-- Bootstrap -->
- 			<link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.css" %}">
-    	</head>
+    		
+ 			  <link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.css" %}">
+    	
+        <script src="{% static "js/bootstrap.js" %}"></script>
+        <script src=" {% static "js/jquery-1.10.2.js" %} "></script>
+        <script src=" {% static "js/app.js" %} "></script>
+
+  </head>
    
-    <body>
-   	 	
+
+
+
+  <body>
+
+      <!-- Yläpalkki -->
    	 	<div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
@@ -28,188 +37,28 @@
               <li><a href="#contact">Contact</a></li>
               <li><a href="/gymlog/apu_request/">Apu_req</a></li>
             </ul>
-          </div><!--/.nav-collapse -->
+          </div>
         </div>
       </div>
-    </div>
+      </div>
+      <!-- Yläpalkki -->
 
     <div class="container">
-<br>
-<br>
-<br>      
-      
-<span class="note">Tervetuloa (käyttäjä)! Viimeisin treeni tehty {{ last_workout }}</span>
-  <br>
+      <br>
+        <br>
+        <span class="note">Tervetuloa (käyttäjä)! </span>
+        <br>
+        <br>
   
-<a href="/gymlog/uusi_treeni/" class="btn btn-warning" id="new_workout">Uusi treeni!</a><br>
-
-
-
-<span class="response">{{testi}}</span>
-
-  <br>
-  
-<!-- drop down menu. lista tulee kannasta -->
-              <div class="btn-group">
-                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                   <span id="_vit">Valitse liike</span><span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu" role="menu">
-                                    
-                  {% for liike in liikkeet %}
-
-                      <li><a id="{{ liike }}" >{{ liike }}</a></li>
-                  
-                  {%endfor%}
-
-                  <li class="divider"></li>
-                  <li><a href="#addModal" data-toggle="modal">Lisää uusi liike</a></li>
-
-                </ul>
-              </div>
-
-
-
+      <a href="/gymlog/new_workout/" class="btn btn-warning" id="new_workout">Uusi treeni!</a><br>
     
+    <br>
+
+    Viimeisimmät treenit: 
     
-<!-- loppuupi tähän -->
-<br>
-<br>
-    <a href="#acceptModal" role="button" class="btn btn-primary btn-lg" data-toggle="modal" id="jQuery">jQuery testi</a>
+    <div id="viimeiset_treenit"></div>
 
-<br>
-
-<h1>
-    <button class="btn" id="dec">-</button>
-        <span class="testi">0</span>kg
-    <button class="btn" id="inc_kg">+</button>
-</h1>
-
-
-<a href="#acceptModal" role="button" class="btn" data-toggle="modal" id="post_send">Send!</a>
-
-<span id="huoh">teksti</span>
-<br>
-<br>
-<select id="aioConceptName">
-    <option value="0">choose io</option>
-    <option value="1">roma</option>
-    <option value="2">totti</option>
-</select>
-
-
-<div class="btn-large-group">
-                
-                <button type="button" class="btn-large btn-primary dropdown-toggle" data-toggle="dropdown">
-                   <span id="_vit">Valitse liike</span><span class="caret"></span>
-                </button>
-
-                <ul class="dropdown-menu" role="menu" id="wtf">
-                                    
-                  {% for liike in liikkeet %}
-
-                      <li><a id="{{ liike }}" >{{ liike }}</a></li>
-                  
-                  {%endfor%}
-
-                  <li class="divider"></li>
-                  <li><a href="#addModal" data-toggle="modal">Lisää uusi liike</a></li>
-
-                </ul>
-                 
-              </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- Modal -->
-<div id="acceptModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 id="myModalLabel" class="post_response">response</h3>
-      </div>
-      <div class="modal-body">
-     
-      
-        <h4>sarjat: </h4>
-
-        {% if sarjat %}
-
-          {% for sarja in sarjat %}
-          <li> talennettu sarja: {{ sarja.toistot }}
-          {% endfor %}
-        {% else %}
-          <h4>Ei sarjoja</h4>
-        {% endif %}
-
-      </div>
-      <div class="modal-footer">
-    <button class="btn2" data-dismiss="modal" aria-hidden="true">Jatka</button>
-    
     </div>
-  </div>
-</div> <!-- /loppuu -->
-
-
-
-
-<!-- Tallenna uusi liike modaali -->
-<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Lisää uusi liike</h4>
-        </div>
-        <div class="modal-body">
-        Lisättävä liike:
-        
-        <form name="add_exercise" action ="/gymlog/add_exercise/" method="post">
-         {% csrf_token %}
-          <input type="text" name="liike">
-
-        </div>
-        <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Sulje</button>
-        <button type="submit" class="btn btn-primary">Tallenna</button>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<ul>
-{% for treeni in treenit %}
-    
-  <li>{{ treeni }}</li>
-    <ul>
-      
-    </ul>
-{% endfor %}
-</ul>
-
-
-{% for i in setit.treeni%}
-  {{i}}<br>
-{%endfor%}
 
 
 
@@ -217,12 +66,14 @@
 
 
 
-    	<script src="http://code.jquery.com/jquery.js"></script>
-    	<script src="{% static "js/bootstrap.js" %}"></script>
-    
 
-      <script src=" {% static "js/jquery-1.10.2.js" %} "></script>
-      <script src=" {% static "js/jquery.cookie.js" %} "></script>
-      <script src=" {% static "js/application_test.js" %} "></script>
-    </body>
-    </html>
+
+
+
+
+
+
+
+
+  </body>
+</html>
