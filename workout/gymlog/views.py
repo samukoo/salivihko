@@ -49,7 +49,11 @@ def uusi_treeni(request):
 
 	context=RequestContext(request)
 
-	context_dict = {}
+	#Pyydetään päivämäärä
+	a=funktiot.db()
+	pvm = a.hae_pvm()
+
+	context_dict = {'pvm':pvm}
 
 	return render_to_response('gymlog/uusi_treeni.html', context_dict ,context)
 
