@@ -9,34 +9,13 @@ from models import *
 
 from gymlog import funktiot
 
-#import *
 
 def index(request):
 	context = RequestContext(request)
-	
 	a = funktiot.db()
-	
-	#fetch_db() hakee viimeisimmän treenin päivämäärän
-	#last_workout = a.fetch_db()
-	
-	treenit = treeni.objects.all()
-	
-	
+	pvm = a.hae_pvm()
 
-	setit = setti.objects.all()
-
-
-
-	liikkeet = "joo"
-
-
-	#Syötetään context_dict muuttujalle data
-	context_dict = {
-	'setit' : setit,
-	'treenit' : treenit
-	}
-	
-	#Lähetetään keräilty data html rederöitäväksi
+	context_dict = {'pvm' : pvm}
 	return render_to_response('gymlog/index.html',context_dict, context)
 
 def save(request):
@@ -70,16 +49,7 @@ def uusi_treeni(request):
 
 	context=RequestContext(request)
 
-	
-
-	testi = {
-			'77.77.7777':"daa",
-			'66.66.6666':"joo"
-			}
-
-	context_dict = {'testi':testi
-
-					}
+	context_dict = {}
 
 	return render_to_response('gymlog/uusi_treeni.html', context_dict ,context)
 
@@ -91,28 +61,8 @@ def new_workout_page(request):
 
 	a=funktiot.db()
 	liikkeet=a.hae_liikkeet()
-
-	context_dict = {'liikkeet' : liikkeet}
+	pvm = a.hae_pvm()
+	context_dict = {'liikkeet' : liikkeet,
+					'pvm':pvm}
 
 	return render_to_response('gymlog/new_workout.html', context_dict ,context)
-
-
-
-
-
-
-
-def apu_request(request):
-	context=RequestContext(request)
-
-	_data_count = workout.objects.count()
-	_data_set = workout.objects.all()
-
-
-	return HttpResponse(_data_set)
-
-
-
-
-
-

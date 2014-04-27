@@ -1,26 +1,31 @@
-//gymlog application.js. Palvelun jQueryt (
+//gymlog application.js.  jQueryt 
 
+
+/*Liike listasta poimitaan data muuttujaan valittu valinta. 
+Tämän jälkeen muuttuja injektoidaan id="exercise" -elementtiin
+*/
 $('#liike').on('click',function()
 {
 var data = $('#liike :selected').text();
 jQuery("#exercise").text(data);
 });
 
-//"button.send" click. POST funktio. Tähän täytyy kaivaa 
-//cookiesta csrf -token joka vaaditaan POST bodyssä. 
 
-
+/*"button.send" click. POST funktio. Tähän täytyy kaivaa 
+cookiesta csrf -token joka vaaditaan POST bodyssä. 
+*/
 $("#send_set").on('click',function()
 	{
 	var _toistot = parseInt(jQuery("#rep").text());
 	var _kilot = parseInt(jQuery("#kg").text());
 	var _liike = jQuery("#exercise").text();
+	var _pvm = jQuery("#pvm").text();
 	var csrftoken = $.cookie('csrftoken');
 	$.post( "/gymlog/save/", { 	csrfmiddlewaretoken: csrftoken, 
 								toistot: _toistot, 
 								kilot: _kilot,
 								liike: _liike,
-								date: "13.03.2014"})
+								date: _pvm})
 		.always(function( data ){
 			alert(data);
 		});

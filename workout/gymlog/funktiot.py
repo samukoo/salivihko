@@ -4,7 +4,7 @@
 
 from models import workout, exercise
 import datetime
-
+import time
 
 class db:
 
@@ -26,3 +26,9 @@ class db:
 		liikkeet = exercise.objects.all()
 
 		return (liikkeet)
+
+	def hae_pvm(self):
+		pvm = time.localtime()
+		pvmString = time.strftime("%d.%m.%Y",pvm)
+
+		return (pvmString)

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generated="20140426 16:19:47.481" generator="Robot 2.8.3 (Python 2.7.6 on win32)">
+<robot generated="20140426 16:47:12.768" generator="Robot 2.8.3 (Python 2.7.6 on win32)">
 <suite source="C:\Users\kotissa\django-app\workout\acceptance-tests\gymlog.txt" id="s1" name="Gymlog">
 <kw type="setup" name="Open frontpage">
 <doc></doc>
@@ -10,18 +10,18 @@
 <arguments>
 <arg>http://127.0.0.1:8000/gymlog/</arg>
 </arguments>
-<msg timestamp="20140426 16:19:47.631" level="INFO">Opening browser 'firefox' to base url 'http://127.0.0.1:8000/gymlog/'</msg>
-<status status="PASS" endtime="20140426 16:19:51.863" starttime="20140426 16:19:47.631"></status>
+<msg timestamp="20140426 16:47:12.928" level="INFO">Opening browser 'firefox' to base url 'http://127.0.0.1:8000/gymlog/'</msg>
+<status status="PASS" endtime="20140426 16:47:16.910" starttime="20140426 16:47:12.928"></status>
 </kw>
 <kw type="kw" name="Selenium2Library.Title Should Be">
 <doc>Verifies that current page title equals `title`.</doc>
 <arguments>
 <arg>Salivihko v0.01</arg>
 </arguments>
-<msg timestamp="20140426 16:19:51.873" level="INFO">Page title is 'Salivihko v0.01'.</msg>
-<status status="PASS" endtime="20140426 16:19:51.873" starttime="20140426 16:19:51.863"></status>
+<msg timestamp="20140426 16:47:16.920" level="INFO">Page title is 'Salivihko v0.01'.</msg>
+<status status="PASS" endtime="20140426 16:47:16.920" starttime="20140426 16:47:16.910"></status>
 </kw>
-<status status="PASS" endtime="20140426 16:19:51.873" starttime="20140426 16:19:47.631"></status>
+<status status="PASS" endtime="20140426 16:47:16.920" starttime="20140426 16:47:12.928"></status>
 </kw>
 <test id="s1-t1" name="User can save workout stat into service">
 <kw type="kw" name="User navigates to &quot;new workout page&quot; where he can select and save exercise, reps, and kilos.">
@@ -35,48 +35,130 @@
 <kw type="kw" name="Selenium2Library.Click Link">
 <doc>Clicks a link identified by locator.</doc>
 <arguments>
-<arg>uusi_treeni</arg>
+<arg>new_workout</arg>
 </arguments>
-<msg timestamp="20140426 16:19:51.873" level="INFO">Clicking link 'uusi_treeni'.</msg>
-<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
-<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20140426 16:47:16.920" level="INFO">Clicking link 'new_workout'.</msg>
+<status status="PASS" endtime="20140426 16:47:17.990" starttime="20140426 16:47:16.920"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Page Should Contain">
+<doc>Verifies that current page contains `text`.</doc>
 <arguments>
+<arg>6 toistoa</arg>
 </arguments>
-<msg timestamp="20140426 16:19:52.043" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" endtime="20140426 16:19:52.043" starttime="20140426 16:19:51.893"></status>
+<msg timestamp="20140426 16:47:18.010" level="INFO">Current page contains text '6 toistoa'.</msg>
+<status status="PASS" endtime="20140426 16:47:18.010" starttime="20140426 16:47:17.990"></status>
 </kw>
-<msg timestamp="20140426 16:19:52.043" level="FAIL">ValueError: Element locator 'uusi_treeni' did not match any elements.</msg>
-<status status="FAIL" endtime="20140426 16:19:52.043" starttime="20140426 16:19:51.873"></status>
+<kw type="kw" name="Selenium2Library.Page Should Contain">
+<doc>Verifies that current page contains `text`.</doc>
+<arguments>
+<arg>20 kg</arg>
+</arguments>
+<msg timestamp="20140426 16:47:18.030" level="INFO">Current page contains text '20 kg'.</msg>
+<status status="PASS" endtime="20140426 16:47:18.030" starttime="20140426 16:47:18.010"></status>
 </kw>
-<status status="FAIL" endtime="20140426 16:19:52.043" starttime="20140426 16:19:51.873"></status>
+<kw type="kw" name="Selenium2Library.Click Element">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>inc_rep</arg>
+</arguments>
+<msg timestamp="20140426 16:47:18.030" level="INFO">Clicking element 'inc_rep'.</msg>
+<status status="PASS" endtime="20140426 16:47:18.100" starttime="20140426 16:47:18.030"></status>
 </kw>
-<status status="FAIL" endtime="20140426 16:19:52.043" starttime="20140426 16:19:51.873"></status>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>jquery=.rep:contains(7)</arg>
+</arguments>
+<status status="PASS" endtime="20140426 16:47:18.110" starttime="20140426 16:47:18.100"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Click Element">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>dec_rep</arg>
+</arguments>
+<msg timestamp="20140426 16:47:18.110" level="INFO">Clicking element 'dec_rep'.</msg>
+<status status="PASS" endtime="20140426 16:47:18.180" starttime="20140426 16:47:18.110"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>jquery=.rep:contains(6)</arg>
+</arguments>
+<status status="PASS" endtime="20140426 16:47:18.210" starttime="20140426 16:47:18.180"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Click Element">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>inc_kg</arg>
+</arguments>
+<msg timestamp="20140426 16:47:18.210" level="INFO">Clicking element 'inc_kg'.</msg>
+<status status="PASS" endtime="20140426 16:47:18.310" starttime="20140426 16:47:18.210"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>jquery=.kg:contains(22.5)</arg>
+</arguments>
+<status status="PASS" endtime="20140426 16:47:18.310" starttime="20140426 16:47:18.310"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Click Element">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>dec_kg</arg>
+</arguments>
+<msg timestamp="20140426 16:47:18.310" level="INFO">Clicking element 'dec_kg'.</msg>
+<status status="PASS" endtime="20140426 16:47:18.390" starttime="20140426 16:47:18.310"></status>
+</kw>
+<kw type="kw" name="Selenium2Library.Wait Until Page Contains Element">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>jquery=.kg:contains(20)</arg>
+</arguments>
+<status status="PASS" endtime="20140426 16:47:18.420" starttime="20140426 16:47:18.390"></status>
+</kw>
+<status status="PASS" endtime="20140426 16:47:18.420" starttime="20140426 16:47:16.920"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Comment">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>at "new workout page" user save exercise, reps and kilos</arg>
+</arguments>
+<status status="PASS" endtime="20140426 16:47:18.420" starttime="20140426 16:47:18.420"></status>
+</kw>
+<kw type="kw" name="BuiltIn.Comment">
+<doc>Displays the given messages in the log file as keyword arguments.</doc>
+<arguments>
+<arg>Just saved "set" is displayed in "new workout page" immediatetly</arg>
+</arguments>
+<status status="PASS" endtime="20140426 16:47:18.420" starttime="20140426 16:47:18.420"></status>
+</kw>
+<status status="PASS" endtime="20140426 16:47:18.420" starttime="20140426 16:47:16.920"></status>
 </kw>
 <doc></doc>
 <tags>
 </tags>
-<status status="FAIL" endtime="20140426 16:19:52.043" critical="yes" starttime="20140426 16:19:51.873">ValueError: Element locator 'uusi_treeni' did not match any elements.</status>
+<status status="PASS" endtime="20140426 16:47:18.420" critical="yes" starttime="20140426 16:47:16.920"></status>
 </test>
 <kw type="teardown" name="Selenium2Library.Close Browser">
 <doc>Closes the current browser.</doc>
 <arguments>
 </arguments>
-<status status="PASS" endtime="20140426 16:19:52.113" starttime="20140426 16:19:52.053"></status>
+<status status="PASS" endtime="20140426 16:47:18.540" starttime="20140426 16:47:18.420"></status>
 </kw>
 <doc></doc>
 <metadata>
 </metadata>
-<status status="FAIL" endtime="20140426 16:19:52.113" starttime="20140426 16:19:47.481"></status>
+<status status="PASS" endtime="20140426 16:47:18.540" starttime="20140426 16:47:12.768"></status>
 </suite>
 <statistics>
 <total>
-<stat fail="1" pass="0">Critical Tests</stat>
-<stat fail="1" pass="0">All Tests</stat>
+<stat fail="0" pass="1">Critical Tests</stat>
+<stat fail="0" pass="1">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat fail="1" pass="0" id="s1" name="Gymlog">Gymlog</stat>
+<stat fail="0" pass="1" id="s1" name="Gymlog">Gymlog</stat>
 </suite>
 </statistics>
 <errors>
