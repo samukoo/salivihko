@@ -6,7 +6,7 @@ $.getJSON('http://localhost:8080/workouts', function(data) {
     	
     	for(i=0; i < data.result.length ; i++)
     	{	
-    	output+= data.result[i].id+ ": " + data.result[i].workout+"<br>";
+    	output+= data.result[i].id+ ": " +   data.result[i].workout+ "<br>";
 	    }
 	    output+="</ul>";
 

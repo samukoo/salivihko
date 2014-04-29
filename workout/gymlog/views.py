@@ -41,7 +41,7 @@ def add_exercise(request):
 	form = LiikeForm(request.POST)
 	if form.is_valid():
 		form.save(commit=True)
-		return redirect('index')
+		return redirect('new_workout_page')
 	else:
 		return HttpResponse("vituixman")
 
@@ -70,3 +70,9 @@ def new_workout_page(request):
 					'pvm':pvm}
 
 	return render_to_response('gymlog/new_workout.html', context_dict ,context)
+
+def uusi_liike(request):
+	context=RequestContext(request)
+
+	return render_to_response('gymlog/uusi_liike.html' ,context)
+

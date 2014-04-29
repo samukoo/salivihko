@@ -29,9 +29,16 @@ margin:0px;
 						<span class="icon-bar"></span>
 					</button>
 					<a class="brand" href="/gymlog/uusi_treeni/">GymLog</a>
-					<span class="brand" id="pvm">{{ pvm }}</span>
-					<span class="brand" id="exercise"></span>
 					
+					<ul class="nav">
+						<li><a id="add" href="/gymlog/uusi_liike/">Lisää uusi liike</a></li>
+						<li><a id="exercise"></a></li>
+					</ul>
+					
+					
+
+
+
 				</div>
 			</div>
 		</div>
@@ -59,8 +66,9 @@ margin:0px;
 											<option value="{{ liike }}" id="{{ liike }}" >{{ liike }}</option>
 									
 									{%endfor%}
-										<option value="/add" > Lisää uusi liike </option> 
-							</select>
+										
+							</select> 
+			
 <!-- loppuupi tähän -->
 			</div>
 <!-- toistot -->
@@ -172,8 +180,8 @@ margin:0px;
 			<div style="
 				font-family:verdana;
 				position:absolute;
-				left:5%;
-				right:5%;
+				left:25%;
+				right:25%;
 				height:50px;
 				top:70%;
 				padding:0px;
@@ -184,9 +192,30 @@ margin:0px;
 						<button class="btn-large" id="send_set">Lähetä</button>
 					</center>
 
+<span class="brand" id="pvm">{{ pvm }}</span>
+
 			</div>
-			<!-- sivun sisältö -->
 		</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<!-- sivun sisältö -->
 			<script src="http://code.jquery.com/jquery.js"></script>
 			<script src="{% static "js/bootstrap.js" %}"></script>
 		
@@ -194,5 +223,36 @@ margin:0px;
 			<script src=" {% static "js/jquery-1.10.2.js" %} "></script>
 			<script src=" {% static "js/jquery.cookie.js" %} "></script>
 			<script src=" {% static "js/application.js" %} "></script>
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 		</body>
 		</html>

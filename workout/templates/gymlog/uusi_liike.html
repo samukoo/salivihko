@@ -26,11 +26,9 @@
           </button>
           <a class="brand" href="/gymlog/">GymLog</a>
           <div class="nav-collapse collapse">
-            
             <ul class="nav">
-            <li><a id="pvm">{{ pvm }}</a></li>
-            <li><a id="back" href="/gymlog/new_workout">Uusi treeni</a></li>
-          </ul>
+            <li><a id="back" href="/gymlog/new_workout">Peruuta</a></li>
+            </ul>
           </div>
         </div>
       </div>
@@ -50,10 +48,23 @@
             bottom:5%;
             top:50px;
             padding:0px;
-            border:1px solid black;
+            border:1px solid white;
             border-spacing:100px 50px;">
 
         <div id="viimeisin_treeni"></div>         
+        <div>
+        <form name="add_exercise" action ="/gymlog/add_exercise/" method="post">
+         {% csrf_token %}
+          <input type="text" name="liike">
+
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Tallenna</button>
+        </form>
+
+
+
+
       </div>
       <!--container-->            
           <script src="{% static "js/bootstrap.js" %}"></script>
