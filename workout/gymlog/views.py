@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+
 from django.http import *
 from django.template import RequestContext
 from django.shortcuts import render_to_response
@@ -15,8 +16,20 @@ def index(request):
 	a = funktiot.db()
 	pvm = a.hae_pvm()
 
+
 	context_dict = {'pvm' : pvm}
 	return render_to_response('gymlog/index.html',context_dict, context)
+
+def history(request, workout):
+
+	context = RequestContext(request)
+
+	workout = workout.replace('_','.')
+
+	context_dict = {'pvm' : workout}
+
+	return render_to_response('gymlog/uusi_treeni.html', context_dict ,context)
+
 
 def save(request):
 	#TÄmä paska pitäisi refaktoroida.

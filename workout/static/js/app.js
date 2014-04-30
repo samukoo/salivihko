@@ -1,14 +1,22 @@
 
 
-$.getJSON('http://localhost:8080/workouts', function(data) {
+$.getJSON('http://localhost:8080/workouts', function(dates) {
     	
-    	var output="</ul>";
+    	data=dates;
+    	dates_NO_DOTS = JSON.stringify(dates).replace(/\./g,"_");
+    	dates_NO_DOTS = JSON.parse(dates_NO_DOTS);
+		
+		var output="</ul>";
     	
     	for(i=0; i < data.result.length ; i++)
     	{	
-    	output+= data.result[i].id+ ": " +   data.result[i].workout+ "<br>";
+    	output+= data.result[i].id+ ": "+ "<a id='"+data.result[i].workout+	"' href='uusi_treeni/"+	dates_NO_DOTS.result[i].workout+	"'>"+ data.result[i].workout+"</a><br>";
+
+    	  // data.result[i].workout+ "<br>";
 	    }
 	    output+="</ul>";
 
 document.getElementById("viimeiset_treenit").innerHTML=output;
 });
+
+     
