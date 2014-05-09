@@ -8,7 +8,7 @@ $.getJSON("http://localhost:8080/exercises",function(data){
 		valikko += "<option value=" + data.result[i].liike +"id=" + data.result[i].liike + ">" +data.result[i].liike+"</option>"
 	}
 
-	valikko += "<option value=/add > Lisää uusi liike </option>"; 
+	//valikko += "<option value=/add > Lisää uusi liike </option>"; 
 
 	document.getElementById("liike").innerHTML=valikko;
 
@@ -21,9 +21,9 @@ $.getJSON("http://localhost:8080/exercises",function(data){
 									
 						
 											
-id="{{ liike }}" >{{ liike }}</option>
+//id="{{ liike }}" >{{ liike }}</option>
 
-<option value="{{ liike }}" id="{{ liike }}" >{{ liike }}</option>
+//<option value="{{ liike }}" id="{{ liike }}" >{{ liike }}</option>
 									
 										
 							
