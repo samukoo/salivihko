@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 
 from django import forms
-from gymlog.models import workout, exercise
+from gymlog.models import workout, exercise, UserProfile
+from django.contrib.auth.models import User
 
 class ToistoForm(forms.ModelForm):
     
@@ -9,11 +10,12 @@ class ToistoForm(forms.ModelForm):
     kilot = forms.IntegerField(help_text="kilot")
     date = forms.CharField(widget=forms.DateInput(), max_length=128, help_text="Pvm")
     liike = forms.CharField(help_text="liike")
+    user = forms.CharField(help_text="liike")
 
     class Meta:
         # Provide an association between the ModelForm and a model
         model = workout
-        #fields = ('date', 'toistot')
+       
 
 class LiikeForm(forms.ModelForm):
 
@@ -21,28 +23,10 @@ class LiikeForm(forms.ModelForm):
 
     class Meta:
       model =  exercise
-        
 
-#widget=forms.HiddenInput()
+class UserForm(forms.ModelForm):
+    password = forms.CharField(widget=forms.PasswordInput())
 
-
-
-
-
-
-
-
-#class PageForm(forms.ModelForm):
- #   title = forms.CharField(max_length=128, help_text="Please enter the title of the page.")
-  #  url = forms.URLField(max_length=200, help_text="Please enter the URL of the page.")
-   # views = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
-
-    #class Meta:
-        # Provide an association between the ModelForm and a model
-     #   model = Page
-
-        # What fields do we want to include in our form?
-        # This way we don't need every field in the model present.
-        # Some fields may allow NULL values, so we may not want to include them...
-        # Here, we are hiding the foreign key.
-      #  fields = ('title', 'url', 'views')
+    class Meta:
+          model = User
+          fields = ('username','email','password','first_name', 'last_name')

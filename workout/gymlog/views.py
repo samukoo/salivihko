@@ -4,10 +4,13 @@
 from django.http import *
 from django.template import RequestContext
 from django.shortcuts import render_to_response
-from gymlog.forms import ToistoForm, LiikeForm
+from gymlog.forms import ToistoForm, LiikeForm, UserForm
 from django.shortcuts import redirect
 from models import *
-
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout
+from django.http import HttpResponseRedirect, HttpResponse
 from gymlog import funktiot
 
 
@@ -71,7 +74,7 @@ def uusi_treeni(request):
 	return render_to_response('gymlog/uusi_treeni.html', context_dict ,context)
 
 
-
+@login_required
 def new_workout_page(request):
 
 	context=RequestContext(request)
@@ -88,4 +91,67 @@ def uusi_liike(request):
 	context=RequestContext(request)
 
 	return render_to_response('gymlog/uusi_liike.html' ,context)
+
+def register(request):
+
+	context = RequestContext(request)
+
+	registered = False
+
+	#Jos request on POST
+	if request.method == 'POST':
+
+		user_form = UserForm(data=request.POST)
+
+		if user_form.is_valid():
+
+			user = user_form.save()
+			user.set_password(user.password)
+			user.save()
+
+			registered = True
+		else:
+			print user_form.errors
+
+	#Jos request on GET
+	else:
+		user_form = UserForm()
+
+	return render_to_response(
+		'gymlog/register.html',
+		{'user_form':user_form, 'registered': registered},
+		context)
+
+def user_login(request):
+
+	context = RequestContext(request)
+
+	if request.method == 'POST':
+		username = request.POST['username']
+		password = request.POST['password']
+		user = authenticate(username=username, password=password)
+
+		if user:
+			if user.is_active:
+				login(request, user)
+				return HttpResponseRedirect('/gymlog/')
+			else:
+				return HttpResponse("account not activated/disabled.")
+
+		else:
+			return HttpResponse ("invalid login credentials")
+
+	else:
+		return render_to_response('gymlog/login.html', {}, context)
+
+@login_required
+def user_logout(request):
+
+	logout(request)
+
+	return HttpResponseRedirect('/gymlog/')
+
+@login_required
+def restricted(request):
+	return HttpResponse("restricteed aaareaaa")
 

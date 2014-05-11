@@ -3,7 +3,6 @@ from gymlog.models import *
 
 
 
-#admin.site.register(workout)
-#admin.site.register(exercise)
-admin.site.register(treeni) 
-admin.site.register(setti)
+admin.site.register(workout)
+admin.site.register(exercise)
+admin.site.register(UserProfile)
