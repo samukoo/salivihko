@@ -1,22 +1,22 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
     {% load static %}
 
 
     <html>
-    	<head>
-    		<title>GymLog v0.01</title>
-    		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    		<!-- Bootstrap -->
- 			<link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.css" %}">
-    	
+        <head>
+            <title>GymLog v0.01</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <!-- Bootstrap -->
+            <link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.css" %}">
+        
 
       
 
       </head>
    
     <body>
-   	 	
-   	 	<div class="navbar navbar-inverse navbar-fixed-top">
+        
+        <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
           <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -29,7 +29,7 @@
             
             <ul class="nav">
             <li><a id="pvm">{{ pvm }}</a></li>
-            <li><a id="back" href="/gymlog/new_workout">Uusi sarja</a></li>
+            
           </ul>
           </div>
         </div>
@@ -50,15 +50,28 @@
             bottom:5%;
             top:50px;
             padding:0px;
-            border:1px solid black;
+            border:1px solid white;
             border-spacing:100px 50px;">
 
-        <div id="viimeisin_treeni"></div>         
+             
+      <br>
+        <form id="login_form"  method="post" action="/gymlog/login/">
+            {% csrf_token %}
+            Username:<br><input type="text" name="username" class="form-control" value="" size="50" />
+            <br />
+            Password:<br> <input type="password" name="password" value="" size="50" />
+            <br />
+
+            <input type="submit" class="btn btn-success" value="Login!" />
+        </form>
+
+
+
+
       </div>
       <!--container-->            
           <script src="{% static "js/bootstrap.js" %}"></script>
-      <script src=" {% static "js/jquery-1.10.2.js" %} "></script>
-    <script src=" {% static "js/app_nw.js" %} "></script>
+      
 
     </body>
     </html>

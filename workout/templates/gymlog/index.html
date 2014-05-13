@@ -32,9 +32,21 @@
           <a class="brand" href="">GymLog</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-                            <li><a href="#about">About</a></li>
-              <li><a href="#contact">Contact</a></li>
               
+              
+              
+              {% if user.is_authenticated %}
+              
+              <li><a href="logout/">Logout</a></li>
+            
+              {% else %}
+
+              <li><a href="register/">Register</a></li>
+              <li><a href="login/">Login</a></li>
+
+              {% endif %}
+
+              <li><a href="#about">About</a></li>
             </ul>
           </div>
         </div>
@@ -42,15 +54,42 @@
       </div>
       <!-- Yläpalkki -->
 
-    <div class="container">
-      <br>
+    <!--<div class="container">-->
+      <!--container-->
+      <div class="container2" style="
+            
+            position:absolute;
+            left:20%;
+            right:20%;
+            bottom:5%;
+            top:50px;
+            padding:0px;
+            border:1px solid white;
+            border-spacing:100px 50px;">
+
         <br>
-        <span class="note">Tervetuloa (käyttäjä)! </span>
+
+        {% if user.is_authenticated %}
+        <span class="note"> Tervetuloa {{ user.username }} </span>      
+
+        {% else %}  
+        <span class="note"> <a href="login/">Kirjaudu</a>, ole hyvä </span>   
+
+        {% endif %}
+
+        
         <br>
         <br>
   
-      <a href="/gymlog/new_workout/" class="btn btn-warning" id="new_workout">Uusi treeni!</a><br>
+        {% if user.is_authenticated %}
+
+        <a href="/gymlog/new_workout/" class="btn btn-success" id="new_workout">Uusi treeni!</a><br>
+        
+        {% else %}
+        <a href="/gymlog/new_workout/" class="btn" id="new_workout">Uusi treeni!</a><br>
     
+        {% endif %}
+
     <br>
 
     Viimeisimmät treenit: 
@@ -65,17 +104,6 @@
 
 
     </div>
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -33,6 +33,7 @@ margin:0px;
 					<ul class="nav">
 						<li><a id="add" href="/gymlog/uusi_liike/">Lisää uusi liike</a></li>
 						<li><a id="exercise"></a></li>
+						<li><a id="user">{{ user.username }}</a></li>
 					</ul>
 					
 					
@@ -59,16 +60,7 @@ margin:0px;
 
 				 
 <!-- drop down menu. lista tulee kannasta -->
-							<select id="liike" >
-																				
-									{% for liike in liikkeet %}
-
-											<option value="{{ liike }}" id="{{ liike }}" >{{ liike }}</option>
-									
-									{%endfor%}
-										
-							</select> 
-			
+							<select id="liike" ></select> 
 <!-- loppuupi tähän -->
 			</div>
 <!-- toistot -->
@@ -223,7 +215,7 @@ margin:0px;
 			<script src=" {% static "js/jquery-1.10.2.js" %} "></script>
 			<script src=" {% static "js/jquery.cookie.js" %} "></script>
 			<script src=" {% static "js/application.js" %} "></script>
-		
+			<script src=" {% static "js/app_selection_list.js" %} "></script>
 
 
 

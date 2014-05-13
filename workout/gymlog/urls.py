@@ -9,5 +9,8 @@ urlpatterns = patterns('',
 		url(r'uusi_treeni/$', views.uusi_treeni, name='uusi_treeni'),
 		url(r'uusi_liike/$', views.uusi_liike, name='uusi_liike'),
 		url(r'uusi_treeni/(?P<workout>[-\w]+)/$', views.history, name='history'),
-		#url(r'search/$', views.search, name='search'),)
+		url(r'register/$', views.register, name='register'),
+		url(r'login/$', views.user_login, name='user_login'),
+		url(r'logout/$', views.user_logout, name='logout'),
+		url(r'^restricted/', views.restricted, name='restricted'),
 		)

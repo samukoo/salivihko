@@ -20,12 +20,14 @@ $("#send_set").on('click',function()
 	var _kilot = parseInt(jQuery("#kg").text());
 	var _liike = jQuery("#exercise").text();
 	var _pvm = jQuery("#pvm").text();
+	var user = jQuery("#user").text();
 	var csrftoken = $.cookie('csrftoken');
 	$.post( "/gymlog/save/", { 	csrfmiddlewaretoken: csrftoken, 
 								toistot: _toistot, 
 								kilot: _kilot,
 								liike: _liike,
-								date: _pvm})
+								date: _pvm,
+								user: user})
 		.always(function( data ){
 			alert(data);
 		});

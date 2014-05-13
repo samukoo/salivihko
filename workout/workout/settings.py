@@ -8,6 +8,9 @@ ADMINS = (
 )
 
 MANAGERS = ADMINS
+###########
+
+LOGIN_URL = '/gymlog/login/'
 
 ######### db ###################
 
