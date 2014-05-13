@@ -23,6 +23,7 @@ def index(request):
 	context_dict = {'pvm' : pvm}
 	return render_to_response('gymlog/index.html',context_dict, context)
 
+@login_required
 def history(request, workout):
 
 	context = RequestContext(request)
@@ -61,6 +62,7 @@ def add_exercise(request):
 	else:
 		return HttpResponse("vituixman")
 
+@login_required
 def uusi_treeni(request):
 
 	context=RequestContext(request)
