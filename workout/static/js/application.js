@@ -1,5 +1,19 @@
-//gymlog application.js.  jQueryt 
+//annetaan ympäristömuuttuja-arvo
 
+var env="http://localhost:8080";
+var user = jQuery("#user").text();
+//gymlog application.js.  jQueryt 
+//Haetaan tallennetut liikkeet alasvetovalikkoon
+$.getJSON(env+"/exercises?user="+user,function(data){
+
+	var valikko="";
+
+	for(var i = 0; i < data.result.length; i++){
+
+		valikko += "<option value=" + data.result[i].liike +"id=" + data.result[i].liike + ">" +data.result[i].liike+"</option>"
+	}
+	document.getElementById("liike").innerHTML=valikko;
+});
 
 /*Liike listasta poimitaan data muuttujaan valittu valinta. 
 Tämän jälkeen muuttuja injektoidaan id="exercise" -elementtiin

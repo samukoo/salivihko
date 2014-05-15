@@ -1,6 +1,8 @@
 
 
-$.getJSON('http://localhost:8080/workouts', function(dates) {
+var user = jQuery("#user").text();
+
+$.getJSON('http://localhost:8080/workouts?user='+user, function(dates) {
     	
     	data=dates;
     	dates_NO_DOTS = JSON.stringify(dates).replace(/\./g,"_");
@@ -11,8 +13,6 @@ $.getJSON('http://localhost:8080/workouts', function(dates) {
     	for(i=0; i < data.result.length ; i++)
     	{	
     	output+= data.result[i].id+ ": "+ "<a id='"+data.result[i].workout+	"' href='uusi_treeni/"+	dates_NO_DOTS.result[i].workout+	"'>"+ data.result[i].workout+"</a><br>";
-
-    	  // data.result[i].workout+ "<br>";
 	    }
 	    output+="</ul>";
 

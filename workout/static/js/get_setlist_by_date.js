@@ -1,9 +1,9 @@
 
-
+var user = jQuery("#user").text();
 var _pvm = jQuery("#pvm").text();
 var search_date = "http://localhost:8080/search_date?date=";
 search_date += _pvm;
-$.getJSON(search_date ,function(data){                
+$.getJSON("http://localhost:8080/search_date?date="+_pvm+"&user="+user ,function(data){                
         var taulu = "<ol>";
         var apu = ""; 
             for( i=0 ; i < data.result.length ; i++ )

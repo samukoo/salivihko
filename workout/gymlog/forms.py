@@ -10,7 +10,7 @@ class ToistoForm(forms.ModelForm):
     kilot = forms.IntegerField(help_text="kilot")
     date = forms.CharField(widget=forms.DateInput(), max_length=128, help_text="Pvm")
     liike = forms.CharField(help_text="liike")
-    user = forms.CharField(help_text="liike")
+    user = forms.CharField(help_text="user")
 
     class Meta:
         # Provide an association between the ModelForm and a model
@@ -20,7 +20,7 @@ class ToistoForm(forms.ModelForm):
 class LiikeForm(forms.ModelForm):
 
     liike = forms.CharField(widget=forms.TextInput(), max_length=40, help_text="Liike")
-
+    user = forms.CharField(help_text="user")
     class Meta:
       model =  exercise
 
