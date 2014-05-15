@@ -1,10 +1,10 @@
-//annetaan ympoäristömuuttuja-arvo
+//annetaan ympäristömuuttuja-arvo
 
 var env="http://localhost:8080";
-
+var user = jQuery("#user").text();
 //gymlog application.js.  jQueryt 
 //Haetaan tallennetut liikkeet alasvetovalikkoon
-$.getJSON(env+"/exercises",function(data){
+$.getJSON(env+"/exercises?user="+user,function(data){
 
 	var valikko="";
 

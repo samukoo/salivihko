@@ -16,7 +16,8 @@ class workout(models.Model):
 class exercise(models.Model):
 
 	liike = models.CharField(max_length=40)
-
+	user = models.CharField(max_length=20)
+	
 	def __unicode__(self):
 		return self.liike
 

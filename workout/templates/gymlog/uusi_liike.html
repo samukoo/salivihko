@@ -28,6 +28,7 @@
           <div class="nav-collapse collapse">
             <ul class="nav">
             <li><a id="back" href="/gymlog/new_workout">Peruuta</a></li>
+            <li><a id="user" >{{user.username}}</a></li>
             </ul>
           </div>
         </div>
@@ -56,15 +57,12 @@
         <form name="add_exercise" action ="/gymlog/add_exercise/" method="post">
          {% csrf_token %}
           <input type="text" name="liike">
-
+          <input type="hidden" name="user" value="{{ user.username }}">
+        
         </div>
         
         <button type="submit" class="btn btn-primary">Tallenna</button>
         </form>
-
-
-
-
       </div>
       <!--container-->            
           <script src="{% static "js/bootstrap.js" %}"></script>

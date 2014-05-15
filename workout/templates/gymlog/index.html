@@ -10,8 +10,7 @@
  			  <link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.css" %}">
     	
         
-        <script src=" {% static "js/jquery-1.10.2.js" %} "></script>
-        <script src=" {% static "js/get_workouts_index.js" %} "></script>
+        
 
   </head>
    
@@ -70,7 +69,8 @@
         <br>
 
         {% if user.is_authenticated %}
-        <span class="note"> Tervetuloa {{ user.username }} </span>      
+        <span class="note">Tervetuloa</span>  
+        <span class="note" id="user">{{ user.username }}</span>      
 
         {% else %}  
         <span class="note"> <a href="login/">Kirjaudu</a>, ole hyvä </span>   
@@ -83,21 +83,21 @@
   
         {% if user.is_authenticated %}
 
-        <a href="/gymlog/new_workout/" class="btn btn-success" id="new_workout">Uusi treeni!</a><br>
-        
+          <a href="/gymlog/new_workout/" class="btn btn-success" id="new_workout">Uusi treeni!</a><br>
+          <br>
+
+          Viimeisimmät treenit: 
+    
+        <div id="viimeiset_treenit">
+          <span class="note">Ei aikaisempia treenejä</span>
+        </div>
+        <br>
+
         {% else %}
         <a href="/gymlog/new_workout/" class="btn" id="new_workout">Uusi treeni!</a><br>
-    
         {% endif %}
 
-    <br>
-
-    Viimeisimmät treenit: 
     
-   <div id="viimeiset_treenit">
-    <span class="note">Ei aikaisempia treenejä</span>
-   </div>
-<br>
     
 
 
@@ -106,7 +106,8 @@
     </div>
 
 
-
+        <script src=" {% static "js/jquery-1.10.2.js" %} "></script>
+        <script src=" {% static "js/get_workouts_index.js" %} "></script>
 
 
   </body>
