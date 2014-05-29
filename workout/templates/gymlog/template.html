@@ -1,0 +1,65 @@
+    <!DOCTYPE html>
+    {% load static %}
+
+
+    <html>
+    	<head>
+    		<title>GymLog v0.01</title>
+    		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    		<!-- Bootstrap -->
+ 			<link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.css" %}">
+    	
+
+      
+
+      </head>
+   
+    <body>
+   	 	
+   	 	<div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="/gymlog/">GymLog</a>
+          <div class="nav-collapse collapse">
+            
+            <ul class="nav">
+            <li><a id="pvm">{{ pvm }}</a></li>
+            <li><a id="back" href="/gymlog/new_workout">Uusi sarja</a></li>
+            <li><a id="user">{{ user.username }}</a></li>
+          </ul>
+          </div>
+        </div>
+      </div>
+      </div>
+
+      <br>
+      <br>
+      <br>      
+      
+ 
+      <!--container-->
+      <div class="container2" style="
+            
+            position:absolute;
+            left:20%;
+            right:20%;
+            bottom:5%;
+            top:50px;
+            padding:0px;
+            border:1px solid white;
+            border-spacing:100px 50px;">
+
+        <div id="viimeisin_treeni"></div>         
+      </div>
+      <!--container-->            
+         
+    <script src=" {% static "js/jquery-1.10.2.js" %} "></script>
+    <script src=" {% static "js/get_setlist_by_date.js" %} "></script>
+
+    </body>
+    </html>
