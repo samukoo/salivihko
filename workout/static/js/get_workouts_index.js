@@ -10,7 +10,14 @@ $.getJSON('http://localhost:8080/workouts?user='+user, function(dates) {
 		
 		var output="</ul>";
     	
-    	for(i=0; i < data.result.length ; i++)
+        var length=data.result.length;
+
+        if(length > 4)
+        {
+            length = "5";
+        }
+
+    	for(i=0; i < length ; i++)
     	{	
     	output+= data.result[i].id+ ": "+ "<a id='"+data.result[i].workout+	"' href='uusi_treeni/"+	dates_NO_DOTS.result[i].workout+	"'>"+ data.result[i].workout+"</a><br>";
 	    }

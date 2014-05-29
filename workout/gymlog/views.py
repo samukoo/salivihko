@@ -23,6 +23,13 @@ def index(request):
 	context_dict = {'pvm' : pvm}
 	return render_to_response('gymlog/index.html',context_dict, context)
 
+def achievements(request):
+	context = RequestContext(request)
+
+
+
+	return render_to_response('gymlog/achievements.html')
+
 @login_required
 def history(request, workout):
 
